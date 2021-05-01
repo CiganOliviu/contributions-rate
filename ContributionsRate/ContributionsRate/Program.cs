@@ -29,6 +29,13 @@ namespace ContributionsRate
             
             return result;
         }
+
+        public double PredictNumberOfContributions()
+        {
+            var result = GetContributionsRate() * 365;
+
+            return result;
+        }
     }
     
     internal static class Program
@@ -38,6 +45,7 @@ namespace ContributionsRate
             var rates = new Rates(919);
 
             Console.WriteLine(rates.GetContributionsRate());
+            Console.WriteLine(rates.PredictNumberOfContributions());
         }
     }
 }
