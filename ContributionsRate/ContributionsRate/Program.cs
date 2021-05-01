@@ -42,7 +42,7 @@ namespace ContributionsRate
     {
         private static void Main(string[] args)
         {
-            var rates = new Rates(921);
+            var rates = new Rates(935);
 
             Console.WriteLine(rates.GetContributionsRate());
             Console.WriteLine(rates.PredictNumberOfContributions());
