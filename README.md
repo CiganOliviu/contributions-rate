@@ -1,2 +1,2 @@
 # contributions-rate
-Contributions-Rate calculator for Github.
+Contributions-Rate calculator and predictor for Github.
