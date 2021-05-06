@@ -23,16 +23,16 @@ namespace ContributionsRate
         {
         }
 
-        public double GetContributionsRate()
+        public double GetAnnualContributionsRate()
         {
             var result = Convert.ToDouble(Contributions) / Convert.ToDouble(DateTime.Now.DayOfYear);
             
             return result;
         }
 
-        public double PredictNumberOfContributions()
+        public double PredictNumberOfAnnualContributions()
         {
-            var result = GetContributionsRate() * 365;
+            var result = GetAnnualContributionsRate() * 365;
 
             return result;
         }
@@ -42,10 +42,10 @@ namespace ContributionsRate
     {
         private static void Main(string[] args)
         {
-            var rates = new Rates(964);
+            var rates = new Rates(973);
 
-            Console.WriteLine(rates.GetContributionsRate());
-            Console.WriteLine(rates.PredictNumberOfContributions());
+            Console.WriteLine(rates.GetAnnualContributionsRate());
+            Console.WriteLine(rates.PredictNumberOfAnnualContributions());
         }
     }
 }
