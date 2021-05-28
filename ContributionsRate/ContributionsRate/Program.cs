@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Globalization;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace ContributionsRate
 {
@@ -6,11 +9,11 @@ namespace ContributionsRate
     {
         protected readonly int Contributions;
 
-        protected Io(int contributions)
+        public Io(int contributions)
         {
             Contributions = contributions;
         }
-
+        
         public int GetContributions()
         {
             return Contributions;
@@ -40,12 +43,19 @@ namespace ContributionsRate
     
     internal static class Program
     {
-        private static void Main(string[] args)
+        private static async Task Main(string[] args)
         {
             var rates = new Rates(1278);
 
             Console.WriteLine(rates.GetAnnualContributionsRate());
             Console.WriteLine(rates.PredictNumberOfAnnualContributions());
+
+            const string nameOfFile = "last-data.txt";
+
+            var data = rates.GetAnnualContributionsRate().ToString(CultureInfo.InvariantCulture) + " " +
+                       rates.PredictNumberOfAnnualContributions().ToString(CultureInfo.InvariantCulture);
+
+            await File.WriteAllTextAsync(nameOfFile, data);
         }
     }
 }
