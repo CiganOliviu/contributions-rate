@@ -45,7 +45,7 @@ namespace ContributionsRate
     {
         private static async Task Main(string[] args)
         {
-            var rates = new Rates(1278);
+            var rates = new Rates(1296);
 
             Console.WriteLine(rates.GetAnnualContributionsRate());
             Console.WriteLine(rates.PredictNumberOfAnnualContributions());
