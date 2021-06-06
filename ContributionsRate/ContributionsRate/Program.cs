@@ -43,19 +43,12 @@ namespace ContributionsRate
     
     internal static class Program
     {
-        private static async Task Main(string[] args)
+        private static void Main(string[] args)
         {
             var rates = new Rates(1333);
 
             Console.WriteLine(rates.GetAnnualContributionsRate());
             Console.WriteLine(rates.PredictNumberOfAnnualContributions());
-
-            const string nameOfFile = "last-data.txt";
-
-            var data = rates.GetAnnualContributionsRate().ToString(CultureInfo.InvariantCulture) + " " +
-                       rates.PredictNumberOfAnnualContributions().ToString(CultureInfo.InvariantCulture);
-
-            await File.WriteAllTextAsync(nameOfFile, data);
         }
     }
 }
